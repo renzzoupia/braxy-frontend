@@ -28,6 +28,28 @@
 		$data = json_decode($response, true);
 		header("Location: permiso_html.php");
 	}else{
+
+        $curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => 'https://cevicherias.informaticapp.com/usuarios',
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => '',
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => 'GET',
+  CURLOPT_POSTFIELDS => 'sucu_nombre=Rinconcito%20Marino%20-%20Tarapotoo&sucu_direccion=Jr.%20Tarapoto&sucu_telefono=96284414&sucu_departamento=San%20Martin&sucu_provincia=Tarapoto&empr_id=1',
+  CURLOPT_HTTPHEADER => array(
+    'Content-Type: application/x-www-form-urlencoded',
+    'Authorization: Basic YTJhYTA3YWRmaGRmcmV4ZmhnZGZoZGZlcnR0Z2VWYVRVZXpBOFQuSEYza25WTjZLUTVMSzBSc1Nwc0tPOm8yYW8wN29kZmhkZnJleGZoZ2RmaGRmZXJ0dGdlSGdrN1Q1dWswNGhrWFN1MG9GYmdBZFZ3dkxSbWt2dQ=='
+  ),
+));
+$response = curl_exec($curl);
+
+		curl_close($curl);
+		$usuarios = json_decode($response, true);
 		$curl = curl_init();
 
 		curl_setopt_array($curl, array(
@@ -181,9 +203,14 @@
                                         <input type="text" name="pern_descripcion" value="<?= $data["Detalles"][0]['pern_descripcion'] ?>" class="form-control">
                                     </div>
                                     <div class="mb-3">
-                                        <label for="exampleInputPassword1" class="form-label">Correo</label>
-                                        <input type="text" name="usu_id" value="<?= $data["Detalles"][0]['usu_id'] ?>" class="form-control">
-                                    </div>
+									<label for="exampleInputEmail1" class="form-label">Usuarios</label>
+										<select name="usu_id" class="form-select form-select-sm" aria-label=".form-select-sm example" >
+                                        <option type="text" value="<?=$usuario["usu_id"]?>"><?= $data["Detalles"][0]['usu_nombres'] ?> </option>
+											<?php foreach($usuarios["Detalles"] as $usuario):?>	
+											<option type="text" value="<?=$usuario["usu_id"]?>"><?= $usuario["usu_nombres"] ?> <?= $usuario["sucu_nombre"] ?></option>
+											<?php endforeach?>
+										</select>
+									</div>
                                     <button type="submit" class="btn btn-primary">Actualizar</button>
                                     <a href="permiso_html.php" class="btn btn-danger">Cancelar</a>
                                 </form>

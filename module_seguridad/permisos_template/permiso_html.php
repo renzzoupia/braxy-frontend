@@ -159,7 +159,6 @@ $valorGlobal = $_SESSION['mi_variable_global'];
                                     </thead>
 									<tbody>
 										<?php foreach($data["Detalles"] as $permisos):?>
-                                            <?php if ($permisos["sucu_id"] == $valorGlobal["0"]["sucu_id"]): ?>
 										<tr>
 											<td><?= $permisos["perm_tipo"] ?></td>
 											<td><?= $permisos["pern_descripcion"] ?></td>
@@ -168,7 +167,6 @@ $valorGlobal = $_SESSION['mi_variable_global'];
 											<td><a href="permiso_editar_html.php?perm_id=<?= $permisos['perm_id'] ?>" class="btn "><i class="fa-solid fa-pen-to-square"></i></a></td>
 											<td><a href="permiso_eliminar_html.php?perm_id=<?= $permisos['perm_id'] ?>" class="btn"><i class="fas fa-trash" color="#FF0000" ></i></i></a></td>
 										</tr>
-                                            <?php endif; ?>
 										<?php endforeach ?>
 									</tbody>
                                 </table>

@@ -75,7 +75,7 @@ $valorGlobal = $_SESSION['mi_variable_global'];
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="cevicheria_vista/cevicheria_vista.php?sucu_id=<?= $sucursal['sucu_id'] ?>">Entrar</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="cevicheria_vista/cevicheria_prueba.php?sucu_id=<?= $sucursal['sucu_id'] ?>">Entrar</a></div>
                             </div>
                         </div>
                     </div>

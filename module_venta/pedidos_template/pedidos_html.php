@@ -162,7 +162,6 @@
                                     </thead>
                                     <tbody>
                                       <?php foreach($data["Detalles"] as $pedidos): ?>
-                                        <?php if ($pedidos["sucu_id"] == $valorGlobal["0"]["sucu_id"]): ?>
                                         <tr>
                                             <td><?= $pedidos["ped_num_pedido"] ?></td>
                                             <td><?= $pedidos["ped_tipo_compra"] ?></td>
@@ -173,7 +172,6 @@
                                             <td><a href="pedidos_editar_html.php?ped_id=<?= $pedidos['ped_id'] ?>" class="btn "><i class="fa-solid fa-pen-to-square"></i></a></td>
                                             <td><a href="pedidos_eliminar_html.php?ped_id=<?= $pedidos['ped_id'] ?>" class="btn"><i class="fas fa-trash" color="#FF0000" ></a></td>
                                         </tr>
-                                        <?php endif; ?>
                                       <?php endforeach ?>
                                     </tbody>
                                 </table>

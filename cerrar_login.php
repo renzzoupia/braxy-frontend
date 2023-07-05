@@ -7,5 +7,5 @@ if (isset($_SESSION['mi_variable_global'])) {
 }
 
 // A partir de este punto, $_SESSION['mi_variable'] tendrá el valor 0 en esta sesión
-header('Location: index.php');
+header('Location: login.php');
 ?>

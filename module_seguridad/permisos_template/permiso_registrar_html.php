@@ -181,10 +181,10 @@
                                         <input type="text" name="pern_descripcion" class="form-control">
                                     </div>
 									<div class="mb-3">
-									<label for="exampleInputEmail1" class="form-label">Tipo</label>
+									<label for="exampleInputEmail1" class="form-label">Usuarios</label>
 										<select name="usu_id" class="form-select form-select-sm" aria-label=".form-select-sm example" >
 											<?php foreach($usuarios["Detalles"] as $usuario):?>	
-											<option type="text" value="<?=$usuario["usu_id"]?>"><?= $usuario["usu_nombres"] ?></option>
+											<option type="text" value="<?=$usuario["usu_id"]?>"><?= $usuario["usu_nombres"] ?> <?= $usuario["sucu_nombre"] ?></option>
 											<?php endforeach?>
 										</select>
 									</div>

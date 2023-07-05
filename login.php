@@ -24,7 +24,6 @@
 
         $usuario = $_POST['usu_usuario'];
         $clave = $_POST['usu_clave'];
-        var_dump($data['Detalles']);
         
         if($data["Status"] == "404"){
             //header("Location: cevicherias_vista.php");

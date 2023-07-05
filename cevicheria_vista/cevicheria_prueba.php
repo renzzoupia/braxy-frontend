@@ -1,4 +1,27 @@
 <?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+CURLOPT_URL => 'https://cevicherias.informaticapp.com/sucursal',
+CURLOPT_RETURNTRANSFER => true,
+CURLOPT_ENCODING => '',
+CURLOPT_MAXREDIRS => 10,
+CURLOPT_TIMEOUT => 0,
+CURLOPT_FOLLOWLOCATION => true,
+CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+CURLOPT_CUSTOMREQUEST => 'GET',
+CURLOPT_HTTPHEADER => array(
+    'Authorization: Basic YTJhYTA3YWRmaGRmcmV4ZmhnZGZoZGZlcnR0Z2VWYVRVZXpBOFQuSEYza25WTjZLUTVMSzBSc1Nwc0tPOm8yYW8wN29kZmhkZnJleGZoZ2RmaGRmZXJ0dGdlSGdrN1Q1dWswNGhrWFN1MG9GYmdBZFZ3dkxSbWt2dQ=='
+),
+));
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+$data = json_decode($response, true);
+
+
 session_start();
 $curl = curl_init();
 
@@ -19,7 +42,7 @@ $curl = curl_init();
  $response = curl_exec($curl);
 
  curl_close($curl);
- $data = json_decode($response, true);
+ $data2 = json_decode($response, true);
 
 ?>
 
@@ -72,9 +95,8 @@ include("modal_cart.php");
             
             <div class="container_card">
               
-            <?php foreach($data["Detalles"] as $plato): ?>
-                 
-
+            <?php foreach($data2["Detalles"] as $plato): ?>
+                
                     <form id="formulario" name="formulario" method="post" action="cart.php">
                         <div class="blog-post ">
                             <img src="image/ceviche_clasico.png" >
@@ -92,6 +114,7 @@ include("modal_cart.php");
                                 </div>
                         </div>
                     </form>
+
                     <?php endforeach ?>
             </div>
         </div>

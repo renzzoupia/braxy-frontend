@@ -29,6 +29,7 @@
 
 		curl_close($curl);
 		$data = json_decode($response, true);
+        var_dump($data);
 		header("Location: sucursal_html.php");
 	}else{
 		$curl = curl_init();
@@ -222,7 +223,7 @@
                                         <label for="exampleInputEmail1" class="form-label">Asignar empresa</label>
                                         <select name="empr_id" class="form-select form-select-sm" aria-label=".form-select-sm example" >
 
-                                        <option type="text" value="<?=$empresa["empr_id"]?>"><?= $data["Detalle"][0]['empr_nombre'] ?> - Seleccionado</option>
+                                        <option type="text" value="<?=$data["Detalle"][0]['empr_id']?>"><?= $data["Detalle"][0]['empr_nombre'] ?> - Seleccionado</option>
 											<?php foreach($empresas["Detalles"] as $empresa):?>	
                                             <option type="text" value="<?=$empresa["empr_id"]?>"><?= $empresa["empr_nombre"] ?></option>
 											<?php endforeach?>

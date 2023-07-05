@@ -160,7 +160,7 @@ $valorGlobal = $_SESSION['mi_variable_global'];
                                     </thead>
 									<tbody class="table-group-divider">
                                         <?php foreach($data["Detalles"] as $sucursal):?>
-                                            <?php if ($sucursal["sucu_id"] == $valorGlobal["0"]["sucu_id"]): ?>
+                                            <?php if ($valorGlobal["0"]["tiad_id"] == '1'): ?>
 									        <tr>
                                                 <td><?= $sucursal["sucu_nombre"] ?></td>
                                                 <td><?= $sucursal["sucu_direccion"] ?></td>
